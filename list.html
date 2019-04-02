@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>게시판</title>
+
+<!-- 웹폰트 -->
+<link href="https://fonts.googleapis.com/css?family=Poor+Story&amp;subset=korean" rel="stylesheet">
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<script type="text/javascript">
+
+    /* 팝업창 (쵸비) */
+    function chobby(){
+        var chobby = "chobby.html";
+        var popOption = "width=400, height=350;";
+            window.open(chobby,"chobby",popOption);
+        }
+
+    /* 팝업창 (칼리) */
+    function kali(){
+        var kali = "kali.html";
+        var popOption = "width=400, height=350;";
+            window.open(kali,"kali",popOption);
+        }
+
+    /* 팝업창 (어빙) */
+    function irving(){
+        var irving = "irving.html";
+        var popOption = "width=400, height=350;";
+            window.open(irving,"irving",popOption);
+        }
+
+    /* 팝업창 (써니) */
+    function sunny(){
+        var sunny = "sunny.html";
+        var popOption = "width=400, height=350;";
+            window.open(sunny,"sunny",popOption);
+        }
+
+    /* 팝업창 (카렌) */
+    function karen(){
+        var karen = "karen.html";
+        var popOption = "width=400, height=350;";
+            window.open(karen,"karen",popOption);
+        }
+</script>
+
+<style>
+    body {
+    color:dimgray
+    }
+
+    body,a:hover {
+        cursor:url(http://cur.cursors-4u.net/cursors/cur-9/cur817.cur), progress !important;
+    }
+
+    table {
+        font-size:13px;
+        font-family:'Nanum Barun Gothic';
+        text-align:center;
+    }
+
+    table,th,td {
+        border: solid 1px #bbb;
+    }
+
+    th,td {
+        width:150px;
+        height:50px;
+    }
+
+    .name {
+        color:dimgray;
+        text-decoration: none;
+    }
+
+    .name:hover {
+        color: #8faed6;
+        letter-spacing: 5px;
+        font-size:15px;
+        font-family:'Poor Story', cursive;
+    }
+
+    ::-moz-selection{
+          background:lightgray;
+          color:white;
+    }
+    ::selection{
+          background:lightgray;
+          color:white;
+    }
+
+    .title {
+        font-size:40px;
+        color:#93aed2;
+        text-align:center;
+        font-family:'Poor Story', cursive;
+    }
+</style>
+
+</head>
+
+<body>
+<h1 class="title">게시판</h1>
+    <table align="center" cellspacing="0" margin="100">
+        <tr style="background-color:#d9e1ec">
+            <th>이름</th>
+            <th>영어이름</th>
+            <th>성별</th>
+            <th>생일</th>
+        </tr>
+        <tr style="background-color:#f1f1f1">
+            <th><a href="javascript:chobby();" class="name">김우빈</a></th>
+            <td>쵸비 Chobby</td>
+            <td>남자</td>
+            <td>2002-03-12</td>
+        </tr>
+        <tr style="background-color:#e6e6e6">
+            <th><a href="javascript:kali();" class="name">김현준</a></th>
+            <td>칼리 Kali</td>
+            <td>남자</td>
+            <td>2002-08-13</td>
+        </tr>
+        <tr style="background-color:#f1f1f1">
+            <th><a href="javascript:irving();" class="name">문서준</a></th>
+            <td>어빙 Irving</td>
+            <td>남자</td>
+            <td>2002-05-23</td>
+        </tr>
+        <tr style="background-color:#e6e6e6">
+            <th><a href="javascript:sunny();" class="name">박수진</a></th>
+            <td>써니 Sunny</td>
+            <td>여자</td>
+            <td>2002-10-22</td>
+        </tr>
+        <tr style="background-color:#f1f1f1">
+            <th><a href="javascript:karen();" class="name">이다빈</a></th>
+            <td>카렌 Karen</td>
+            <td>여자</td>
+            <td>2002-12-10</td>
+        </tr>
+    </table>
+
+   <center>
+       <br/>
+       <a href="login.html"><input type="button" value="로그인" style="color:#93aed2; background-color:white; border:solid white"/></a>
+       <font color="#93aed2"> | </font>
+       <a href="joinus.html"><input type="button" value="회원가입" style="color:#93aed2; background-color:white; border:solid white"/></a>
+   </center>
+
+</form>
+
+</body>
+</html>
