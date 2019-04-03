@@ -177,10 +177,16 @@
     th {
         width:100px;
         height:50px;
-    } 
+    }
+
     td {
         width:400px;
         height:50px;
+        text-align:center;
+    }
+
+    table,th,td {
+        border: solid 1px #ebebeb;
     }
 
     ::-moz-selection{
@@ -212,12 +218,13 @@
        </tr>
        <tr>
            <th>아이디</th>
-           <td><input type="text" style="width:170px" id="id" name="id" maxlength="12"/> 4자 이상</td>
+           <td><input type="text" style="width:170px" id="id" name="id" maxlength="12"/>
+            <br/>4자 이상</td>
        </tr>
        <tr>
            <th>비밀번호</th>
-           <td><input type="password" style="width:170px" id="pw" maxlength="12"/> 8자 이상
-            <br/><input type="checkbox" onclick="seepw()">비밀번호 보기</td>
+           <td><input type="password" style="width:170px" id="pw" maxlength="12"/>
+            <br/>8자 이상 <input type="checkbox" onclick="seepw()">비밀번호 보기</td>
        </tr>
        <tr>
            <th>비밀번호 확인</th>
@@ -270,8 +277,8 @@
        <tr>
            <th>주소</th>
             <td><input type="text" id="sample6_postcode">
-               <input type="button" onclick="sample6_execDaumPostcode()" style="color:#93aed2" value="우편번호 찾기"><br>
-               <input type="text" id="sample6_address" style="width:300px"> 기본주소<br>
+               <input type="button" onclick="sample6_execDaumPostcode()" style="color:#93aed2" value="우편번호 찾기"><br/><br/>
+               <input type="text" id="sample6_address" style="width:300px"> 기본주소<br/><br/>
                <input type="text" id="sample6_detailAddress" style="width:300px"> 상세주소</td>
        </tr>
        <tr>
