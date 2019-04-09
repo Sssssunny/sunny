@@ -61,35 +61,10 @@
 </head>
 
 <body>
-  <script>
-  // 이미지
-  var string = `  <!-- #tab4 -->
-        <div id="tab4" class="tab_content">
-          <ul class="brand_list">
-            <li><img src="www.playauto.co.kr/img/sender_daehan.png" alt=""></li>
-            <li><img src="www.playauto.co.kr/img/sender_hanjin2.png" alt=""></li>
-            <li><img src="www.playauto.co.kr/img/sender_lotte2.png" alt=""></li>
-            <li><img src="www.playauto.co.kr/img/sender_logen.png" alt=""></li>
-            <li><img src="www.playauto.co.kr/img/sender_post.png" alt=""></li>
-          </ul>
-        </div>`;
   
-  // 이미지 링크만 뽑는 정규식
-  var pattern = /w.*png/g;
-
-  // 이미지 링크를 모두 뽑아오는 반복문
-  var a = 0;
-  // 정규식과 일치하는 이미지 링크를 모두 뽑아올 때까지 반복
-  while((taekbae = pattern.exec(string))!=null){
-    a++;
-    // taekbae1, taekbae2, ...로 저장됨
-    document.getElementById('taekbae'+a).src = 'https://'+taekbae;
-    }
-  </script>
-
-  <header><a href="http://www.playauto.co.kr/" target="_blank">
-          <img src="playauto.png" alt="playauto" height="60" width="200"></a>
-  <br/>협력 택배사</header>
+<header><a href="http://www.playauto.co.kr/" target="_blank">
+        <img src="https://www.playauto.co.kr/com/download/PLAYAUTO_LOGO_NEW_2016.png" alt="playauto" height="60" width="200"></a>
+        <br/>협력 택배사</header>
 
   <table align="center" cellspacing="0" margin="100">
     <tr>
@@ -118,5 +93,31 @@
           <img src="" id="taekbae5" alt=""></a></td>
     </tr>
   </table>
+
+  <script>
+  // 이미지
+  var string = `  <!-- #tab4 -->
+        <div id="tab4" class="tab_content">
+          <ul class="brand_list">
+            <li><img src="www.playauto.co.kr/img/sender_daehan.png" alt=""></li>
+            <li><img src="www.playauto.co.kr/img/sender_hanjin2.png" alt=""></li>
+            <li><img src="www.playauto.co.kr/img/sender_lotte2.png" alt=""></li>
+            <li><img src="www.playauto.co.kr/img/sender_logen.png" alt=""></li>
+            <li><img src="www.playauto.co.kr/img/sender_post.png" alt=""></li>
+          </ul>
+        </div>`;
+  
+  // 이미지 링크만 뽑는 정규식
+  var pattern = /w.*png/g;
+
+  // 이미지 링크를 모두 뽑아오는 반복문
+  var a = 0;
+  // 정규식과 일치하는 이미지 링크를 모두 뽑아올 때까지 반복
+  while((taekbae = pattern.exec(string))!=null){
+    a++;
+    // taekbae1, taekbae2, ...로 저장됨
+    document.getElementById('taekbae'+a).src = 'https://'+taekbae;
+    }
+  </script>
   </body>
 </html>
