@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>베낀거</title>
+<meta charset="UTF-8">
+
+<!-- 웹폰트 -->
+<link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo" rel="stylesheet">
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+*
+{
+  box-sizing:border-box;
+}
+
+body
+{
+  background-color:#f1f1f1;
+  font-family:'Nanum Barun Gothic';
+  text-align:center;
+}
+
+/* Center website */
+.main
+{
+  max-width:400px;
+  margin:auto;
+}
+
+h1
+{
+  font-weight:lighter;
+  font-family:'East Sea Dokdo', cursive;
+  font-size:80px;
+  margin:none;
+}
+
+.row
+{
+  margin: 10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column
+{
+  padding:8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column
+{
+  float:left;
+  width:50%;
+  display:none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after
+{
+  content:"";
+  display:table;
+  clear:both;
+}
+
+/* Content */
+.content
+{
+  background-color:white;
+  padding:10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show
+{
+  display:block;
+}
+
+/* Style the buttons */
+.btn
+{
+  font-family:'Nanum Barun Gothic';
+  border:none;
+  outline:none;
+  padding:12px 16px;
+  background-color:white;
+  cursor:pointer;
+}
+
+.btn:hover
+{
+  background-color:#ddd;
+}
+
+.btn.active
+{
+  background-color:#666;
+  color:white;
+}
+    
+/* 드래그색상 */
+::-moz-selection
+{
+  background:#666;
+  color:white;
+}
+::selection
+{
+  background:#666;
+  color:white;
+}
+</style>
+</head>
+<body>
+
+<!-- 메인 -->
+<div class="main">
+
+<h1>말모이</h1>
+<hr>
+
+<h2>배우</h2>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> 배우</button>
+  <button class="btn" onclick="filterSelection('main')"> 주연</button>
+  <button class="btn" onclick="filterSelection('support')"> 조연</button>
+</div>
+
+<div class="row">
+  <!-- 주연 -->
+  <div class="column main">
+    <div class="content">
+    <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=4431" target="_blank">
+        <img src="" id="MainImg1" alt="" style="width:50%;"></a>
+        <h4>유해진</h4>
+      <p>김판수 역</p>
+    </div>
+  </div>
+  <div class="column main">
+    <div class="content">
+    <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=38464" target="_blank">
+        <img src="" id="MainImg2" alt="" style="width:50%;"></a>
+      <h4>윤계상</h4>
+      <p>류정환 역</p>
+    </div>
+  </div>
+  
+  <!-- 조연 -->
+  <div class="column support">
+    <div class="content">
+    <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=39438" target="_blank">
+        <img src="" id="SupportImg1" alt="" style="width:50%;"></a>
+      <h4>김홍파</h4>
+      <p>조갑윤 역</p>
+    </div>
+  </div>
+  <div class="column support">
+    <div class="content">
+    <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=40703" target="_blank">
+        <img src="" id="SupportImg2" alt="" style="width:50%;"></a>
+      <h4>우현</h4>
+      <p>임동익 역</p>
+    </div>
+  </div>
+  <div class="column support">
+    <div class="content">
+    <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=79964" target="_blank">
+        <img src="" id="SupportImg3" alt="" style="width:50%;"></a>
+      <h4>김태훈</h4>
+      <p>박훈 역</p>
+    </div>
+  </div>
+  <div class="column support">
+    <div class="content">
+    <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=88002" target="_blank">
+        <img src="" id="SupportImg4" alt="" style="width:50%;"></a>
+      <h4>김선영</h4>
+      <p>구자영 역</p>
+    </div>
+  </div>
+  <div class="column support">
+    <div class="content">
+    <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=356524" target="_blank">
+        <img src="" id="SupportImg5" alt="" style="width:50%;"></a>
+      <h4>민진웅</h4>
+      <p>민우철 역</p>
+    </div>
+  </div>
+  <div class="column support">
+    <div class="content">
+    <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=5713" target="_blank">
+        <img src="" id="SupportImg6" alt="" style="width:50%;"></a>
+      <h4>송영창</h4>
+      <p>류완택 역</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+
+/* 주연 */
+var main = `<p class="p_thumb">
+<a href="/movie/bi/pi/basic.nhn?code=4431" title="유해진">
+<img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fssl.pstatic.net%2Fsstatic%2Fpeople%2Fportrait%2F201408%2F20140812112910975-2478051.jpg&type=u111_139&quality=95" width="111" height="139" alt="유해진" onerror="src='https://ssl.pstatic.net/static/movie/2012/06/dft_img111x139.png'"/>
+</a><!-- N=a:act.img -->
+</p>
+<div class="p_info">
+<a href="/movie/bi/pi/basic.nhn?code=4431" title="유해진" class="k_name">유해진</a><!-- N=a:act.name -->
+<em class="e_name"></em>
+<div class="part">
+<p class="in_prt">
+<em class="p_part">주연</em>
+</p>
+<p class="pe_cmt">
+<span>김판수 역</span>
+</p>
+</div>								
+<ul class="mv_product">
+<li><a href="/movie/bi/mi/basic.nhn?code=178526">전투</a><!-- N=a:act.film -->,<span>2018</span></li>
+<li><a href="/movie/bi/mi/basic.nhn?code=167699">말모이</a><!-- N=a:act.film -->,<span>2018</span></li>
+</ul>
+</div>
+</li>
+<li >
+
+<p class="p_thumb">
+<a href="/movie/bi/pi/basic.nhn?code=38464" title="윤계상">
+<img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fssl.pstatic.net%2Fsstatic%2Fpeople%2Fportrait%2F201512%2F20151214104252795.jpg&type=u111_139&quality=95" width="111" height="139" alt="윤계상" onerror="src='https://ssl.pstatic.net/static/movie/2012/06/dft_img111x139.png'"/>
+</a><!-- N=a:act.img -->
+</p>
+<div class="p_info">
+<a href="/movie/bi/pi/basic.nhn?code=38464" title="윤계상" class="k_name">윤계상</a><!-- N=a:act.name -->
+<em class="e_name"></em>
+<div class="part">
+<p class="in_prt">
+<em class="p_part">주연</em>
+</p>
+<p class="pe_cmt">
+<span>류정환 역</span>
+</p>
+</div>								
+<ul class="mv_product">
+<li><a href="/movie/bi/mi/basic.nhn?code=167699">말모이</a><!-- N=a:act.film -->,<span>2018</span></li>
+</ul>
+</div>
+</li>`
+
+/* 조연 */
+var support = `<p class="p_thumb">
+<a href="/movie/bi/pi/basic.nhn?code=39438" title="김홍파">
+<img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fssl.pstatic.net%2Fsstatic%2Fpeople%2F199%2F201708231732293521.jpg&type=u111_139&quality=95" width="111" height="139" alt="김홍파" />
+</a>
+</p>
+<div class="p_info">
+<a href="/movie/bi/pi/basic.nhn?code=39438" title="김홍파" class="k_name">김홍파</a>
+<em class="e_name"></em>
+<div class="part">
+<p class="in_prt">
+<em class="p_part">조연</em>
+</p>
+
+<p class="pe_cmt">
+<span>조갑윤 역</span>
+</p>            
+</div>								
+<ul class="mv_product">
+
+<li><a href="/movie/bi/mi/basic.nhn?code=167099">사바하</a>,<span>2019</span></li>
+
+<li><a href="/movie/bi/mi/basic.nhn?code=181381">천문: 하늘에 묻는다(가제)</a>,<span>2018</span></li>
+</ul>
+</div>
+</li>
+
+<li >     
+<p class="p_thumb">
+<a href="/movie/bi/pi/basic.nhn?code=40703" title="우현">
+<img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fssl.pstatic.net%2Fsstatic%2Fpeople%2Fportrait%2F201202%2F20120227141149996-4030007.jpg&type=u111_139&quality=95" width="111" height="139" alt="우현" />
+</a>
+</p>
+<div class="p_info">
+<a href="/movie/bi/pi/basic.nhn?code=40703" title="우현" class="k_name">우현</a>
+<em class="e_name"></em>
+<div class="part">
+<p class="in_prt">
+<em class="p_part">조연</em>
+</p>
+
+<p class="pe_cmt">
+<span>임동익 역</span>
+</p>
+
+</div>								
+<ul class="mv_product">
+
+<li><a href="/movie/bi/mi/basic.nhn?code=96951">타짜: 원 아이드 잭</a>,<span>2018</span></li>
+
+<li><a href="/movie/bi/mi/basic.nhn?code=167699">말모이</a>,<span>2018</span></li>
+
+</ul>
+</div>
+</li>
+
+<li >
+<p class="p_thumb">
+<a href="/movie/bi/pi/basic.nhn?code=79964" title="김태훈">
+<img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fssl.pstatic.net%2Fsstatic%2Fpeople%2F71%2F201801222151163331.jpg&type=u111_139&quality=95" width="111" height="139" alt="김태훈" />
+</a>
+</p>
+<div class="p_info">
+<a href="/movie/bi/pi/basic.nhn?code=79964" title="김태훈" class="k_name">김태훈</a>
+<em class="e_name"></em>
+<div class="part">
+<p class="in_prt">
+<em class="p_part">조연</em>
+</p>
+
+<p class="pe_cmt">
+<span>박훈 역</span>
+</p>
+
+</div>								
+<ul class="mv_product">
+
+<li><a href="/movie/bi/mi/basic.nhn?code=180875">페르소나</a>,<span>2018</span></li>
+
+<li><a href="/movie/bi/mi/basic.nhn?code=167699">말모이</a>,<span>2018</span></li>
+
+</ul>
+</div>
+</li>
+
+<li >
+<p class="p_thumb">
+<a href="/movie/bi/pi/basic.nhn?code=88002" title="김선영">
+<img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fssl.pstatic.net%2Fsstatic%2Fpeople%2Fportrait%2F201510%2F20151007113839806.jpg&type=u111_139&quality=95" width="111" height="139" alt="김선영" />
+</a>
+</p>
+<div class="p_info">
+<a href="/movie/bi/pi/basic.nhn?code=88002" title="김선영" class="k_name">김선영</a>
+
+<em class="e_name"></em>
+<div class="part">
+<p class="in_prt">
+<em class="p_part">조연</em>
+</p>
+
+<p class="pe_cmt">
+<span>구자영 역</span>
+</p>
+
+</div>								
+<ul class="mv_product">
+
+<li><a href="/movie/bi/mi/basic.nhn?code=167629">어쩌다, 결혼</a>,<span>2018</span></li>
+
+<li><a href="/movie/bi/mi/basic.nhn?code=167699">말모이</a>,<span>2018</span></li>
+
+</ul>
+</div>
+</li>
+
+<li >
+<p class="p_thumb">
+<a href="/movie/bi/pi/basic.nhn?code=356524" title="민진웅">
+<img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fssl.pstatic.net%2Fsstatic%2Fpeople%2F12%2F201611021343219621.jpg&type=u111_139&quality=95" width="111" height="139" alt="민진웅" />
+</a>
+</p>
+<div class="p_info">
+<a href="/movie/bi/pi/basic.nhn?code=356524" title="민진웅" class="k_name">민진웅</a>
+<em class="e_name"></em>
+<div class="part">
+<p class="in_prt">
+<em class="p_part">조연</em>
+</p>
+
+<p class="pe_cmt">
+<span>민우철 역</span>
+</p>
+</div>								
+<ul class="mv_product">
+
+<li><a href="/movie/bi/mi/basic.nhn?code=167699">말모이</a>,<span>2018</span></li>
+
+<li><a href="/movie/bi/mi/basic.nhn?code=85578">7년의 밤</a>,<span>2018</span></li>
+</ul>
+</div>
+</li>
+
+<li >
+<p class="p_thumb">
+<a href="/movie/bi/pi/basic.nhn?code=5713" title="송영창">
+<img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fssl.pstatic.net%2Fsstatic%2Fpeople%2F91%2F201506081216561491.gif&type=u111_139&quality=95" width="111" height="139" alt="송영창" />
+</a>
+</p>
+<div class="p_info">
+<a href="/movie/bi/pi/basic.nhn?code=5713" title="송영창" class="k_name">송영창</a>
+<em class="e_name"></em>
+<div class="part">
+<p class="in_prt">
+<em class="p_part">조연</em>
+</p>
+
+<p class="pe_cmt">
+<span>류완택 역</span>
+</p>
+
+</div>								
+<ul class="mv_product">
+
+<li><a href="/movie/bi/mi/basic.nhn?code=181705">스윈들러</a>,<span>2019</span></li>
+
+<li><a href="/movie/bi/mi/basic.nhn?code=181466">아버지의 과제</a>,<span>2018</span></li>
+
+</ul>
+</div>
+</li>
+
+<li style="display: none;" class="_actorHidden">`
+
+
+var ImgPattern = /search.*95/g; // 배우 프로필 사진
+
+// 이미지 링크를 모두 뽑아오는 반복문
+var a = 1;
+// 정규식과 일치하는 이미지 링크를 모두 뽑아올 때까지 반복
+while((MainImg = ImgPattern.exec(main))!=null)
+{
+    // MainImg1, MainImg2, ...로 저장됨
+    document.getElementById('MainImg'+a).src = 'https://'+MainImg;
+    a++;
+}
+
+// 이미지 링크를 모두 뽑아오는 반복문
+var b = 0;
+// 정규식과 일치하는 이미지 링크를 모두 뽑아올 때까지 반복
+while((SupportImg = ImgPattern.exec(support))!=null)
+{
+    b++;
+    // SupportImg1, SupportImg2, ...로 저장됨
+    document.getElementById('SupportImg'+b).src = 'https://'+SupportImg;
+}
+
+/*
+var People1_Name = /유[가-힣]{2}/g; // 정규식 - 배우 이름 (유해진)
+var People2_Name = /윤[가-힣]{2}/g; // 정규식 - 배우 이름 (윤계상)
+
+var MainRole = /[가-힣]{3} 역/g; // 주연 역할
+
+// 유해진 이름 뽑아오는 조건문
+if((name1 = People1_Name.exec(main))!=null)
+{
+    document.getElementById("People1_Name").value = name1;
+}
+
+// 윤계상 이름 뽑아오는 조건문
+if((name2 = People2_Name.exec(main))!=null)
+{
+    document.getElementById("People2_Name").value = name2;
+}
+
+// 주연(2명)의 역할을 뽑아오는 반복문
+var a = 1;
+// 정규식과 일치하는 이미지 링크를 모두 뽑아올 때까지 반복
+while((role = MainRole.exec(main))!=null)
+{
+    // MainRole1, MainRole2, ...로 저장됨
+    document.getElementById('MainRole'+a).value = role
+    a++;
+} */
+</script>
+
+</body>
+</html>
