@@ -134,7 +134,7 @@ h1
   <div class="column main">
     <div class="content">
     <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=4431" target="_blank">
-        <img src="" id="MainImg1" alt="" style="width:50%;"></a>
+        <img src="" id="Img1" alt="" style="width:50%;"></a>
         <h4>유해진</h4>
       <p>김판수 역</p>
     </div>
@@ -142,7 +142,7 @@ h1
   <div class="column main">
     <div class="content">
     <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=38464" target="_blank">
-        <img src="" id="MainImg2" alt="" style="width:50%;"></a>
+        <img src="" id="Img2" alt="" style="width:50%;"></a>
       <h4>윤계상</h4>
       <p>류정환 역</p>
     </div>
@@ -152,7 +152,7 @@ h1
   <div class="column support">
     <div class="content">
     <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=39438" target="_blank">
-        <img src="" id="SupportImg1" alt="" style="width:50%;"></a>
+        <img src="" id="Img3" alt="" style="width:50%;"></a>
       <h4>김홍파</h4>
       <p>조갑윤 역</p>
     </div>
@@ -160,7 +160,7 @@ h1
   <div class="column support">
     <div class="content">
     <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=40703" target="_blank">
-        <img src="" id="SupportImg2" alt="" style="width:50%;"></a>
+        <img src="" id="Img4" alt="" style="width:50%;"></a>
       <h4>우현</h4>
       <p>임동익 역</p>
     </div>
@@ -168,7 +168,7 @@ h1
   <div class="column support">
     <div class="content">
     <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=79964" target="_blank">
-        <img src="" id="SupportImg3" alt="" style="width:50%;"></a>
+        <img src="" id="Img5" alt="" style="width:50%;"></a>
       <h4>김태훈</h4>
       <p>박훈 역</p>
     </div>
@@ -176,7 +176,7 @@ h1
   <div class="column support">
     <div class="content">
     <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=88002" target="_blank">
-        <img src="" id="SupportImg4" alt="" style="width:50%;"></a>
+        <img src="" id="Img6" alt="" style="width:50%;"></a>
       <h4>김선영</h4>
       <p>구자영 역</p>
     </div>
@@ -184,7 +184,7 @@ h1
   <div class="column support">
     <div class="content">
     <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=356524" target="_blank">
-        <img src="" id="SupportImg5" alt="" style="width:50%;"></a>
+        <img src="" id="Img7" alt="" style="width:50%;"></a>
       <h4>민진웅</h4>
       <p>민우철 역</p>
     </div>
@@ -192,13 +192,14 @@ h1
   <div class="column support">
     <div class="content">
     <a href="https://movie.naver.com/movie/bi/pi/basic.nhn?code=5713" target="_blank">
-        <img src="" id="SupportImg6" alt="" style="width:50%;"></a>
+        <img src="" id="Img8" alt="" style="width:50%;"></a>
       <h4>송영창</h4>
       <p>류완택 역</p>
     </div>
   </div>
 </div>
 </div>
+<input type="text" id="Name1" value="" disabled>
 
 <script>
 filterSelection("all")
@@ -245,8 +246,8 @@ for (var i = 0; i < btns.length; i++) {
 }
 
 
-/* 주연 */
-var main = `<p class="p_thumb">
+/* 배우 */
+var actor = `<p class="p_thumb">
 <a href="/movie/bi/pi/basic.nhn?code=4431" title="유해진">
 <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fssl.pstatic.net%2Fsstatic%2Fpeople%2Fportrait%2F201408%2F20140812112910975-2478051.jpg&type=u111_139&quality=95" width="111" height="139" alt="유해진" onerror="src='https://ssl.pstatic.net/static/movie/2012/06/dft_img111x139.png'"/>
 </a><!-- N=a:act.img -->
@@ -290,10 +291,8 @@ var main = `<p class="p_thumb">
 <li><a href="/movie/bi/mi/basic.nhn?code=167699">말모이</a><!-- N=a:act.film -->,<span>2018</span></li>
 </ul>
 </div>
-</li>`
-
-/* 조연 */
-var support = `<p class="p_thumb">
+</li>
+<p class="p_thumb">
 <a href="/movie/bi/pi/basic.nhn?code=39438" title="김홍파">
 <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fssl.pstatic.net%2Fsstatic%2Fpeople%2F199%2F201708231732293521.jpg&type=u111_139&quality=95" width="111" height="139" alt="김홍파" />
 </a>
@@ -468,53 +467,37 @@ var support = `<p class="p_thumb">
 
 var ImgPattern = /search.*95/g; // 배우 프로필 사진
 
-// 이미지 링크를 모두 뽑아오는 반복문
-var a = 1;
+// 이미지 링크를 모두 뽑아오는 링크
+var a = 0;
 // 정규식과 일치하는 이미지 링크를 모두 뽑아올 때까지 반복
-while((MainImg = ImgPattern.exec(main))!=null)
+while((Img = ImgPattern.exec(actor)) != null)
 {
-    // MainImg1, MainImg2, ...로 저장됨
-    document.getElementById('MainImg'+a).src = 'https://'+MainImg;
-    a++;
+  a++;
+  // Img1, Img2, ...로 저장됨
+  document.getElementById('Img'+a).src = 'https://'+Img;
 }
 
-// 이미지 링크를 모두 뽑아오는 반복문
-var b = 0;
-// 정규식과 일치하는 이미지 링크를 모두 뽑아올 때까지 반복
-while((SupportImg = ImgPattern.exec(support))!=null)
+var People_Name = /k_name">[가-힣]{2,3}</g; // 배우 이름이 포함된 코드 일부
+var PeopleName = /[가-힣]{2,3}/g; // 최종 배우 이름
+
+// 배우 이름이 포함된 일부 코드를 뽑아옴
+var b = 1;
+var c = 0;
+while((ActorName = People_Name.exec(actor)) != null)
 {
-    b++;
-    // SupportImg1, SupportImg2, ...로 저장됨
-    document.getElementById('SupportImg'+b).src = 'https://'+SupportImg;
+  // ActorName1, ActorName2, ...로 저장됨
+  document.getElementById('ActorName'+b).value = 'ActorName';
+  b++
+  if(Actor != null)
+  {
+    while((Name = PeopleName.exec(ActorName)) != null)
+    {
+      c++
+      document.getElementById('name'+c).value = 'name';
+    }
+  }
 }
 
-/*
-var People1_Name = /유[가-힣]{2}/g; // 정규식 - 배우 이름 (유해진)
-var People2_Name = /윤[가-힣]{2}/g; // 정규식 - 배우 이름 (윤계상)
-
-var MainRole = /[가-힣]{3} 역/g; // 주연 역할
-
-// 유해진 이름 뽑아오는 조건문
-if((name1 = People1_Name.exec(main))!=null)
-{
-    document.getElementById("People1_Name").value = name1;
-}
-
-// 윤계상 이름 뽑아오는 조건문
-if((name2 = People2_Name.exec(main))!=null)
-{
-    document.getElementById("People2_Name").value = name2;
-}
-
-// 주연(2명)의 역할을 뽑아오는 반복문
-var a = 1;
-// 정규식과 일치하는 이미지 링크를 모두 뽑아올 때까지 반복
-while((role = MainRole.exec(main))!=null)
-{
-    // MainRole1, MainRole2, ...로 저장됨
-    document.getElementById('MainRole'+a).value = role
-    a++;
-} */
 </script>
 
 </body>
