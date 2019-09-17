@@ -2,38 +2,31 @@
 <html>
 <head>
     <title>로그인</title>
-<link href="https://fonts.googleapis.com/css?family=Poor+Story&amp;subset=korean" rel="stylesheet">
 <link rel="stylesheet" href="http://cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-<script language="javascript">
-    function validate() {
-        var id = document.getElementById("id");
-        var pw = document.getElementById("pw");
+    <% function validate() { %>
+        <% var id = document.getElementById("id"); %>
+        <% var pw = document.getElementById("pw"); %>
         
-        if(join.id.value=="") {
-           alert("아이디를 입력해 주세요.");
-           join.id.focus();
-           return false;
-       }
+        <% if(join.id.value=="") { %>
+            <% alert("아이디를 입력해 주세요."); %>
+            <% join.id.focus(); %>
+            <% return false; %>
+            <% } %>
 
-       if(join.pw.value=="") {
-           alert("비밀번호를 입력해주세요.");
-           join.pw.focus();
-           return false;
+        <% if(join.pw.value=="") { %>
+            <% alert("비밀번호를 입력해주세요."); %>
+            <% join.pw.focus(); %>
+            <% return false; %>
 
-        alert("로그인되었습니다.");
-        }
-    }
+            <% alert("로그인되었습니다."); %>
+            <% } %>
+    <% } %>
 </script>
 
 <style>
     body {
     color:dimgray
-    }
-
-    body, a:hover {
-        cursor: url(http://cur.cursors-4u.net/cursors/cur-9/cur817.cur), progress !important;
     }
 
     form {
@@ -54,7 +47,8 @@
         font-size: 40px;
         color: #93aed2;
         text-align: center;
-        font-family: 'Poor Story', cursive;
+        font-family:'Nanum Barun Gothic';
+        margin-top: 100px;
     }
 </style>
 
@@ -76,8 +70,6 @@
        <input type="submit" value="로그인" style="color:#93aed2; background-color:white; border:solid white"/>
        <font color="#93aed2"> | </font><a href="joinus.html">
        <input type="button" value="회원가입" style="color:#93aed2; background-color:white; border:solid white"/></a>
-       <font color="#93aed2"> | </font>
-       <a href="list.html"><input type="button" value="게시판" style="color:#93aed2; background-color:white; border:solid white"/></a>
    </center>
 </form>
 
