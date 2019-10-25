@@ -1,6 +1,6 @@
 const express = require('express');
 const req = require('request');
-const rq = require('request-promise');
+const request = require('request-promise');
 const cheerio = require('cheerio');
 const app = express();
 const port = 3000;
@@ -16,7 +16,7 @@ app.get('/', function(req, res){
         form: ''
         };
 
-    rq(options)
+    request(options)
         .then(function(body){
         const code = cheerio.load(body);
 
@@ -111,7 +111,7 @@ app.get('/', function(req, res){
             json: true
         };
 
-        return rq(options);
+        return request(options);
         })
         .then(function(resultData){
             console.log(resultData);
